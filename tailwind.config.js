@@ -5,8 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      minHeight: {
+      height: {
         '80vh': '80vh',
+        '90vh': '90vh',
+        '10vh': '10vh',
       }
     },
   },

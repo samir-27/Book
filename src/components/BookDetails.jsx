@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+const BookDetails = () => {
   return (
     <div>
-      HOME JSX
+      
     </div>
   )
 }
 
-export default Home
+export default BookDetails

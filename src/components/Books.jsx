@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { useAppContext } from './context/Context'
+import { API_URL } from '../api'
+const Books = () => {
 
-const Favorites = () => {
+  const [books, setBooks] = useState([])
 
   const { favorites, AddToFavorites, RemoveFromFavorites } = useAppContext()
 
@@ -12,12 +15,20 @@ const Favorites = () => {
     return boolean
   }
 
-
+  useEffect(() => {
+    axios.get(API_URL).then(res => {
+      console.log(res.data)
+      setBooks(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [])
   return (
-    <div className='bg-gray-200 h-90vh'>
-        <div className='container mx-auto flex flex-wrap justify-center'>
-      {favorites.length > 0 ? favorites.map((book) => (
-        <div key={book.id} className='bg-white p-4 rounded-md shadow-xl md:m-12 sm:m-4 m-2'>
+    <div className='bg-gray-200'>
+
+    <div className='container mx-auto flex flex-wrap min-h-80vh justify-center'>
+      {books.map((book) => (
+        <div key={book.id} className='bg-white p-4 rounded-md shadow-xl md:m-10 sm:m-2 m-2'>
           <div className='h-16 flex items-center'>
             <h1 className='text-md font-bold mb-2  w-64'>{book.title}</h1>
           </div>
@@ -28,10 +39,11 @@ const Favorites = () => {
             <button onClick={() => AddToFavorites(book)} className='bg-gray-600 text-white p-2 w-full rounded-lg'>Add to Favorites</button>
           }
         </div>
-      )):<h1>Empty</h1>}
+      ))}
     </div>
-    </div>
+      </div>
+
   )
 }
 
-export default Favorites
+export default Books
