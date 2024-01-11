@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Books' element={<Books />} />
           {/* Define BookDetails and Favorites components and use them here */}
-          <Route path='/book/:id' element={<BookDetails />} />
+          <Route path='/books/:id' element={<BookDetails />} />
           <Route path='/favorites' element={<Favorites />} />
         </Routes>
       

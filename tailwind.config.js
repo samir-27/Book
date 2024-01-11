@@ -9,6 +9,7 @@ module.exports = {
         '80vh': '80vh',
         '90vh': '90vh',
         '10vh': '10vh',
+        '108': '30rem'
       }
     },
   },
