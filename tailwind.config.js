@@ -10,6 +10,9 @@ module.exports = {
         '90vh': '90vh',
         '10vh': '10vh',
         '108': '30rem'
+      },
+      lineHeight:{
+        '12':'3.5rem'
       }
     },
   },
